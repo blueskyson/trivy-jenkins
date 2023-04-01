@@ -1,8 +1,3 @@
-# trivy-jenkins
-
-An Jenkins Pipeline that generates and publishes trivy reports in HTML. You can simply create a new pipeline project on Jenkins and paste the following sample code to the pipeline. Please replace `/usr/local/share/trivy/templates/html.tpl` with your template path on your server.
-
-```groovy
 pipeline {
   agent any
   parameters {
@@ -38,14 +33,3 @@ pipeline {
     }
   }
 }
-```
-
-In the following image, I create a pipeline project called `ScanDockerImage` and paste the sample code to it. After initializing the pipeline project, there will be three inputs for me to choose an image to scan.
-
-![](images/image1.png)
-
-I take `mcr.microsoft.com/dotnet/sdk:6.0` as an example and click **Build** button to start scanning. After scanning, click **Trivy Report** tab on the left side to view the result.
-
-![](images/image2.png)
-
-**note:** you may need to enable `hudson.model.DirectoryBrowserSupport.CSP` to enable CSS.
